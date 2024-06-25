@@ -8,4 +8,3 @@ router = Router()
 async def start_handler(msg: Message):
     await msg.answer("<b>Welcome to Image Converter Bot!</b>\n"
                      "Send image or images you want to convert.")
-    photos = msg.photo
