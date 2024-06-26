@@ -5,6 +5,7 @@ from aiogram.filters import Command
 from aiogram.enums import ChatAction
 
 import os
+import shutil
 
 from converter import convert_to_pdf, convert_to_jpg
 
@@ -21,8 +22,12 @@ async def start_handler(msg: Message):
 
 @router.message(F.photo)
 async def img_handler(msg: Message):
+    if not os.path.exists("temp"):
+        os.makedirs("temp")
+
+    # add ids to list and download images to temporary folder
     img_ids.append(msg.photo[-1].file_id)
-    await msg.bot.download(file=msg.photo[-1].file_id, destination=str(f"img/{msg.photo[-1].file_id}.png"))
+    await msg.bot.download(file=msg.photo[-1].file_id, destination=str(f"temp/{msg.photo[-1].file_id}.png"))
 
     await msg.answer("Upload successful!\n"
                      "Type /convert to convert images")
@@ -62,8 +67,10 @@ async def select_to_conv_type(message: types.Message):
             )
         )
 
-        # clear temporary
-        os.remove(file_path)
+        # clear temporary folder and list
+        if os.path.exists("temp"):
+            shutil.rmtree("temp")
+
         img_ids.clear()
 
     @router.message(F.text.lower() == "jpg")
@@ -72,12 +79,3 @@ async def select_to_conv_type(message: types.Message):
         convert_to_jpg(img_ids)
         await message.answer("Done!")
         img_ids.clear()
-
-'''
-статус
-
-await msg.bot.send_chat_action(
-        chat_id=msg.chat.id,
-        action=ChatAction.UPLOAD_DOCUMENT
-    )
-'''

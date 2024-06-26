@@ -15,9 +15,6 @@ def convert_to_pdf(img_ids):
         pdf_path, "PDF", resolution=100.0, save_all=True, append_images=images[1:]
     )
 
-    for img_id in img_ids:
-        os.remove("temp/" + img_id + ".png")
-
     return pdf_path
 
 
