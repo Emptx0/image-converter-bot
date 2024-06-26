@@ -1,5 +1,4 @@
 from aiogram import types, F, Router
-from aiogram.client import bot
 from aiogram.types import Message
 from aiogram.filters import Command
 from aiogram.enums import ChatAction
