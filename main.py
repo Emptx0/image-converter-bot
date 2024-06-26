@@ -11,7 +11,7 @@ from handlers import router
 
 async def main():
     bot = Bot(
-        token="7077457101:AAG87klb9mmM4tPHSecC8HW3pUelh2L3ThA",
+        token="BOT_TOKEN",
         default=DefaultBotProperties(parse_mode=ParseMode.HTML)
     )
     dp = Dispatcher(storage=MemoryStorage())
