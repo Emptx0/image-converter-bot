@@ -79,7 +79,7 @@ async def select_to_conv_type(message: types.Message):
         await message.answer("Converting to JPG...", reply_markup=types.ReplyKeyboardRemove())
         convert_to_jpg(img_ids)
 
-        # send document
+        # send images
         await msg.bot.send_chat_action(
             chat_id=msg.chat.id,
             action=ChatAction.UPLOAD_DOCUMENT

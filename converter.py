@@ -3,7 +3,7 @@ from PIL import Image
 
 def convert_to_pdf(img_ids):
     images = [
-        Image.open("temp/" + img_id + ".png")
+        Image.open(f"temp/{img_id}.png")
         for img_id in img_ids
     ]
 
