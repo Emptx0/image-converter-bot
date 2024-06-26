@@ -1,5 +1,4 @@
 from PIL import Image
-import os
 
 
 def convert_to_pdf(img_ids):
@@ -20,3 +19,7 @@ def convert_to_pdf(img_ids):
 
 def convert_to_jpg(img_ids):
     print("Converting to jpg")
+    images = [
+        Image.open("temp/" + img_id + ".png").convert('RGB').save("temp/" + img_id + ".jpg")
+        for img_id in img_ids
+    ]
