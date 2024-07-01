@@ -18,6 +18,6 @@ pip install aiogram Pillow
 ```
 python main.py
 ```
-## How bot works?
+## How the bot works?
 This bot will save your images and generated files to a temporary directory.<br/>
 After sending result to user temporary file will be deleted.
