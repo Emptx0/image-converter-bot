@@ -20,4 +20,4 @@ python main.py
 ```
 ## How the bot works?
 This bot will save your images and generated files to a temporary directory.<br/>
-After sending result to user temporary file will be deleted.
+After sending result to user temporary directory will be deleted.
